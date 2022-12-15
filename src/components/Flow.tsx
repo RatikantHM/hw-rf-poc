@@ -47,8 +47,8 @@ function Flow(props: IFlow) {
                     label: 'Node ' + (parseInt(lastNode.id) + 1)
                 },
                 position: {
-                    x: 100,
-                    y: 100
+                    x: 100 + Math.abs(Math.random() * 100),
+                    y: 100 + Math.abs(Math.random() * 100)
                 }
             }
             setNodes([...nodes, newNode]);
