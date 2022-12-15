@@ -18,7 +18,7 @@ function Info(props: IInfo) {
                 </div>
             }
             {selectedInfo &&
-                <pre>
+                <pre className='font-normal text-sm'>
                     {JSON.stringify(selectedInfo, null, 2)}
                 </pre>
             }

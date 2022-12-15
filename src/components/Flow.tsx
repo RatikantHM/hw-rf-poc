@@ -20,8 +20,24 @@ function Flow(props: IFlow) {
     const [nodes, setNodes, onNodesChange] = useNodesState([]);
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
-    const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), [setEdges]);
+    // Connect nodes
+    const onConnect = useCallback((params) => setEdges((eds) => {
+        updateNodeInfo(params);
+        return addEdge(params, eds);
+    }), [setEdges, nodes]);
 
+    // Update node information while connecting nodes
+    const updateNodeInfo = (edge) => {
+        const sourceNode = _.find(nodes, { id: edge.source });
+        const targetNode = _.find(nodes, { id: edge.target });
+        sourceNode.outgoingConnections = (sourceNode.outgoingConnections || 0) + 1;
+        targetNode.incommingConnections = (sourceNode.incommingConnections || 0) + 1;
+        targetNode.parents = targetNode.parents || [];
+        const { parents, ...sourceNodeRestInfo } = sourceNode;
+        targetNode.parents.push(sourceNodeRestInfo);
+    }
+
+    // Add nodes
     const addNode = () => {
         const lastNode = _.last(nodes);
         if (lastNode) {
@@ -51,6 +67,7 @@ function Flow(props: IFlow) {
         }
     }
 
+    // Select nodes
     const selectNode = (event) => {
         const { setSelectedInfo } = props;
         const node = _.find(nodes, ['id', event.target.dataset.id]);
