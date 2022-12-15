@@ -1,3 +1,11 @@
+.react-flow__controls {
+    zoom: 1.25;
+}
+
+.react-flow__attribution {
+    display: none;
+}
+
 .add-node_button {
     position: absolute;
     top: 25px;
