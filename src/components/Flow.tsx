@@ -33,7 +33,7 @@ function Flow(props: IFlow) {
         sourceNode.outgoingConnections = (sourceNode.outgoingConnections || 0) + 1;
         targetNode.incommingConnections = (targetNode.incommingConnections || 0) + 1;
         targetNode.parents = targetNode.parents || [];
-        const { parents, ...sourceNodeRestInfo } = sourceNode;
+        const { parents, incommingConnections, outgoingConnections, ...sourceNodeRestInfo } = sourceNode;
         targetNode.parents.push(sourceNodeRestInfo);
     }
 
