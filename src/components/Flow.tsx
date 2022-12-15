@@ -31,7 +31,7 @@ function Flow(props: IFlow) {
         const sourceNode = _.find(nodes, { id: edge.source });
         const targetNode = _.find(nodes, { id: edge.target });
         sourceNode.outgoingConnections = (sourceNode.outgoingConnections || 0) + 1;
-        targetNode.incommingConnections = (sourceNode.incommingConnections || 0) + 1;
+        targetNode.incommingConnections = (targetNode.incommingConnections || 0) + 1;
         targetNode.parents = targetNode.parents || [];
         const { parents, ...sourceNodeRestInfo } = sourceNode;
         targetNode.parents.push(sourceNodeRestInfo);
