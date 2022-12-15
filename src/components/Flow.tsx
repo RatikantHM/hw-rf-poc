@@ -23,7 +23,32 @@ function Flow(props: IFlow) {
     const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), [setEdges]);
 
     const addNode = () => {
-        console.log('node');
+        const lastNode = _.last(nodes);
+        if (lastNode) {
+            const newNode = {
+                id: parseInt(lastNode.id) + 1 + '',
+                data: {
+                    label: 'Node ' + (parseInt(lastNode.id) + 1)
+                },
+                position: {
+                    x: 100,
+                    y: 100
+                }
+            }
+            setNodes([...nodes, newNode]);
+        } else {
+            const newNode = {
+                id: '1',
+                data: {
+                    label: 'Node 1'
+                },
+                position: {
+                    x: 100,
+                    y: 100
+                }
+            }
+            setNodes([...nodes, newNode]);
+        }
     }
 
     const selectNode = (event) => {
