@@ -8,7 +8,7 @@ interface IInfo {
 function Info(props: IInfo) {
     const { selectedInfo } = props;
     return (
-        <div className='h-full'>
+        <div className='info'>
             <h3 className='text-base font-semibold underline'>Selected node information</h3>
             {!selectedInfo &&
                 <div>

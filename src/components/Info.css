@@ -1,0 +1,5 @@
+.info {
+    height: 100vh;
+    overflow-y: scroll;
+    padding: .5rem;
+}
