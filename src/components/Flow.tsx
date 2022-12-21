@@ -8,6 +8,7 @@ import ReactFlow, {
     addEdge,
 } from 'reactflow';
 import * as _ from 'lodash';
+import { FaPlus } from 'react-icons/fa';
 import 'reactflow/dist/style.css';
 import './Flow.css';
 
@@ -75,7 +76,7 @@ function Flow(props: IFlow) {
     }
 
     return (
-        <div style={{ height: '100%', width: '100%' }}>
+        <div className='flow' style={{ height: '100%', width: '100%' }}>
             <ReactFlowProvider>
                 <ReactFlow
                     nodes={nodes}
@@ -88,7 +89,7 @@ function Flow(props: IFlow) {
                     <Controls position='bottom-right' />
                     <Background />
                 </ReactFlow>
-                <button className='add-node_button' onClick={addNode}>Add Node</button>
+                <button className='add-node_button' onClick={addNode} title='Add Node'><FaPlus /></button>
             </ReactFlowProvider>
         </div>
     );

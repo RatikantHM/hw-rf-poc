@@ -1,0 +1,7 @@
+.toolbox-info {
+    height: 150px;
+}
+
+.flow-block {
+    height: calc(100vh - 200px);
+}
